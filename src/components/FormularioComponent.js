@@ -1,15 +1,56 @@
-import React from "react";
+import React, {useState} from "react";
+
+const initialValues =[
+  {
+    key:'',
+    nombre:'',
+    apellido:'',
+    edad:'', 
+    password:''
+  }
+]
 
 const FormularioComponent = () => {
+  const [values, setValues] = useState(initialValues);
+  const {key, nombre, apellido, edad, password}= values;
+
+  const handleInputChange=(e)=>{
+    
+    const changedFormValue ={
+      ...values, 
+      [e.target.name]:e.target.value
+      //key:key
+    }
+    setValues(changedFormValue)
+  }
+
+  const handleSubmit =(e)=>{
+    e.preventDefault();
+  }
+
     return(
-    <form>
+    <form onSubmit={handleSubmit}>
         <div className="form-group">
+        <label>ID</label>
+          <input
+          type="text"
+          className="form-control"
+          id="key"
+          placeholder="Key"
+          value={key}
+          name='key'
+          onChange={handleInputChange}
+          />
+          <br/>
           <label>Nombre</label>
           <input
           type="text"
           className="form-control"
           id="nombre"
           placeholder="Nombre"
+          value={nombre}
+          name='nombre'
+          onChange={handleInputChange}
           />
           <br/>
         </div>
@@ -20,6 +61,9 @@ const FormularioComponent = () => {
           className="form-control"
           id="apellido"
           placeholder="Apellido"
+          value={apellido}
+          name='apellido'
+          onChange={handleInputChange}
           />
           <br/>
         </div>
@@ -30,6 +74,9 @@ const FormularioComponent = () => {
           className="form-control"
           id="edad"
           placeholder="Edad"
+          value={edad}
+          name='edad'
+          onChange={handleInputChange}
           />
           <br/>
         </div>
@@ -40,6 +87,9 @@ const FormularioComponent = () => {
           className="form-control"
           id="password"
           placeholder="Password"
+          value={password}
+          name='password'
+          onChange={handleInputChange}
           ></input>
           <br/>
         </div>
