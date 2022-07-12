@@ -47,6 +47,13 @@ const UsuarioComponent = () => {
         const changeUsuarios = usuarios.filter(u => u.key !== usuarioKey)
         setUsuarios(changeUsuarios)
     }
+    const usuarioAdd =(usuario)=>{
+        const addUsuarios = [
+            ...usuarios,
+            usuario
+        ]
+        setUsuarios(addUsuarios)
+    }
 
     return(
     <div className="container mt-4">
@@ -64,7 +71,7 @@ const UsuarioComponent = () => {
       </div>
       <div className="col">
         <h1>Formulario</h1>
-        <FormularioComponent/>
+        <FormularioComponent usuarioAdd={usuarioAdd}/>
         
       </div>
     </div>

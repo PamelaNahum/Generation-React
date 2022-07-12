@@ -10,7 +10,7 @@ const initialValues =[
   }
 ]
 
-const FormularioComponent = () => {
+const FormularioComponent = ({usuarioAdd}) => {
   const [values, setValues] = useState(initialValues);
   const {key, nombre, apellido, edad, password}= values;
 
@@ -26,6 +26,7 @@ const FormularioComponent = () => {
 
   const handleSubmit =(e)=>{
     e.preventDefault();
+    usuarioAdd(values)
   }
 
     return(
