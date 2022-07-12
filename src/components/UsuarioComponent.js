@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import TarjetaComponent from "./TarjetaComponent";
 import FormularioComponent from "./FormularioComponent";
 
@@ -15,7 +15,7 @@ const usuario2 ={
 }*/}
 
 
-const usuarios =[
+const initialUsuarios =[
     {
         key:0,
         nombre: 'Joseph',
@@ -38,13 +38,27 @@ const usuarios =[
 
 
 const UsuarioComponent = () => {
+
+    const [usuarios, setUsuarios] = useState(initialUsuarios);
+    {/* const state = useState(initialUsuarios);
+    state[0]=initialUsuarios
+    state[1]= funcion que nos permite hacer cambios */}
+    const tarjetaDelete =(usuarioKey)=>{
+        const changeUsuarios = usuarios.filter(u => u.key !== usuarioKey)
+        setUsuarios(changeUsuarios)
+    }
+
     return(
     <div className="container mt-4">
     <div className="row">
       <div className="col-8 ">
         <h1>Lista</h1>
         {
-            usuarios.map(u => <TarjetaComponent key={u.key} usuario={u}/>)
+            usuarios.map(u =>
+                <TarjetaComponent 
+                key={u.key} 
+                usuario={u} 
+                tarjetaDelete={tarjetaDelete}/>)
         }
         
       </div>
