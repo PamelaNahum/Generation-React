@@ -60,6 +60,11 @@ const UsuarioComponent = () => {
         setUsuarios(addUsuarios)
     }
 
+    const usuarioEdit=(usuarioEditado)=>{
+        const changeUsuarios = usuarios.map(usuario => (usuario.key === usuarioEditado.key ? usuarioEditado : usuario))
+        setUsuarios(changeUsuarios)
+    }
+
     return(
     <div className="container mt-4">
     <div className="row">
@@ -79,7 +84,8 @@ const UsuarioComponent = () => {
         <h1>Formulario</h1>
         <FormularioComponent 
         usuarioAdd={usuarioAdd} 
-        usuarioEditado={usuarioEditado} />
+        usuarioEditado={usuarioEditado}
+        usuarioEdit={usuarioEdit}/>
         
       </div>
     </div>

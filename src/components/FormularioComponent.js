@@ -10,7 +10,7 @@ const initialValues =[
   }
 ]
 
-const FormularioComponent = ({usuarioAdd, usuarioEditado}) => {
+const FormularioComponent = ({usuarioAdd, usuarioEditado, usuarioEdit}) => {
   const [values, setValues] = useState(initialValues);
   const {key, nombre, apellido, edad, password}= values;
 
@@ -36,7 +36,12 @@ const FormularioComponent = ({usuarioAdd, usuarioEditado}) => {
 
   const handleSubmit =(e)=>{
     e.preventDefault();
-    usuarioAdd(values)
+    if(usuarioEditado !== null){
+      usuarioEdit(values)
+    }else{
+      usuarioAdd(values)
+    }
+    
   }
 
     return(
@@ -106,7 +111,7 @@ const FormularioComponent = ({usuarioAdd, usuarioEditado}) => {
           ></input>
           <br/>
         </div>
-        <button type="submit" className="btn btn-outline-primary">Crear usuario</button>
+        <button type="submit" className="btn btn-outline-primary">{usuarioEditado ? 'Editar':'Crear'}</button>
       </form>
       );
 }
