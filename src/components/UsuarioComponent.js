@@ -20,19 +20,22 @@ const initialUsuarios =[
         key:0,
         nombre: 'Joseph',
         apellido:'Joestar',
-        edad:'18'
+        edad:'18',
+        password: '1234'
     },
     {
         key:1,
         nombre: 'Josuske',
         apellido:'Higashikata',
-        edad:'16'
+        edad:'16',
+        password: '1234'
     },
     {
         key:2,
         nombre: 'Jonathan',
         apellido:'Higashikata',
-        edad:'16'
+        edad:'16',
+        password: '1234'
     }
 ]
 
@@ -43,6 +46,8 @@ const UsuarioComponent = () => {
     {/* const state = useState(initialUsuarios);
     state[0]=initialUsuarios
     state[1]= funcion que nos permite hacer cambios */}
+    const [usuarioEditado, setUsuarioEditado]= useState(null);
+
     const tarjetaDelete =(usuarioKey)=>{
         const changeUsuarios = usuarios.filter(u => u.key !== usuarioKey)
         setUsuarios(changeUsuarios)
@@ -65,13 +70,16 @@ const UsuarioComponent = () => {
                 <TarjetaComponent 
                 key={u.key} 
                 usuario={u} 
-                tarjetaDelete={tarjetaDelete}/>)
+                tarjetaDelete={tarjetaDelete}
+                setUsuarioEditado={setUsuarioEditado}/>)
         }
         
       </div>
       <div className="col">
         <h1>Formulario</h1>
-        <FormularioComponent usuarioAdd={usuarioAdd}/>
+        <FormularioComponent 
+        usuarioAdd={usuarioAdd} 
+        usuarioEditado={usuarioEditado} />
         
       </div>
     </div>
