@@ -85,12 +85,14 @@ const UsuarioComponent = () => {
         <FormularioComponent 
         usuarioAdd={usuarioAdd} 
         usuarioEditado={usuarioEditado}
-        usuarioEdit={usuarioEdit}/>
+        usuarioEdit={usuarioEdit}
+        setUsuarioEditado={setUsuarioEditado}/>
         
       </div>
     </div>
   </div>
   );
+
 }
 
 export default UsuarioComponent;
