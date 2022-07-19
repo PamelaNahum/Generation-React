@@ -89,6 +89,10 @@ const UsuarioComponent = () => {
         setUsuarioEditado={setUsuarioEditado}/>
         
       </div>
+        <br/>
+        <div>
+      <button type="buttom" className="btn btn-outline-primary me-2">Ir a Autos</button>
+      </div>
     </div>
   </div>
   );
