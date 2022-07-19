@@ -1,6 +1,7 @@
-import React,{useState} from "react";
+import React,{useState, useCallback} from "react";
 import {TarjetaComponent} from "./TarjetaComponent";
 import {FormularioComponent} from "./FormularioComponent";
+import {useNavigate} from 'react-router-dom'
 
 {/* const usuario1 ={
     nombre: 'Joseph',
@@ -48,6 +49,10 @@ const UsuarioComponent = () => {
     state[1]= funcion que nos permite hacer cambios */}
     const [usuarioEditado, setUsuarioEditado]= useState(null);
 
+    const navigate = useNavigate();
+
+    const handleOnClick = useCallback(()=> navigate('/autos', {replace:true}, [navigate]));
+
     const tarjetaDelete =(usuarioKey)=>{
         const changeUsuarios = usuarios.filter(u => u.key !== usuarioKey)
         setUsuarios(changeUsuarios)
@@ -91,7 +96,7 @@ const UsuarioComponent = () => {
       </div>
         <br/>
         <div>
-      <button type="buttom" className="btn btn-outline-primary me-2">Ir a Autos</button>
+      <button type="buttom" className="btn btn-outline-primary me-2" onClick={handleOnClick}>Ir a Autos</button>
       </div>
     </div>
   </div>
