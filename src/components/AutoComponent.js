@@ -24,7 +24,7 @@ const AutoComponent = () => {
     const [autoEditado, setAutoEditado]= useState(null);
 
     const tarjetaDelete =(autoId)=>{
-        const changeAutos = autos.filter(u => u.key !== autoId)
+        const changeAutos = autos.filter(u => u.id !== autoId)
         setAutos(changeAutos)
     }
     const autoAdd =(auto)=>{
@@ -36,7 +36,7 @@ const AutoComponent = () => {
     }
 
     const autoEdit=(autoEditado)=>{
-        const changeAutos = autos.map(auto => (auto.key === autoEditado.key ? autoEditado : auto))
+        const changeAutos = autos.map(auto => (auto.id === autoEditado.key ? autoEditado : auto))
         setAutos(changeAutos)
     }
 
@@ -48,7 +48,7 @@ const AutoComponent = () => {
         {
             autos.map(u =>
                 <TarjetaAuto 
-                key={u.key} 
+                key={u.id} 
                 auto={u} 
                 tarjetaDelete={tarjetaDelete}
                 setAutoEditado={setAutoEditado}/>)
