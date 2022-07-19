@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from "react";
 import {TarjetaAuto} from "./TarjetaComponent";
 import {FormularioAuto} from "./FormularioComponent";
-import { getAll } from "../services/AutoServices";
+import { getAll, eliminarAuto, saveAuto } from "../services/AutoServices";
 
 
 const initialAuto =[
@@ -32,16 +32,14 @@ const AutoComponent = () => {
       ()=>{obtenerAutos()}
       ,[])
 
-    const tarjetaDelete =(autoId)=>{
-        const changeAutos = autos.filter(u => u.id !== autoId)
-        setAutos(changeAutos)
+    const tarjetaDelete = async(autoId)=>{
+        await eliminarAuto(autoId)
+        setAutos(await getAll())
     }
-    const autoAdd =(auto)=>{
-        const addAuto = [
-            ...autos,
-            auto
-        ]
-        setAutos(addAuto)
+
+    const autoAdd = async(auto)=>{
+      await saveAuto(auto)
+      setAutos(await getAll())
     }
 
     const autoEdit=(autoEditado)=>{
