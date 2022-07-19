@@ -16,7 +16,8 @@ const autoValues =[
     marca:'',
     modelo:'',
     velocidad:'', 
-    color:''
+    color:'', 
+    valor : 0
   }
 ]
 
@@ -142,7 +143,7 @@ const FormularioComponent = ({usuarioAdd, usuarioEditado, usuarioEdit, setUsuari
 
 const FormularioAuto = ({autoAdd, autoEditado, autoEdit, setAutoEditado}) => {
   const [values, setValues] = useState(autoValues);
-  const {marca, modelo, velocidad, color}= values;
+  const {marca, modelo, velocidad, color, valor}= values;
 
   useEffect( 
     ()=>{
@@ -154,7 +155,8 @@ const FormularioAuto = ({autoAdd, autoEditado, autoEdit, setAutoEditado}) => {
           marca:'',
           modelo:'',
           velocidad:'', 
-          color:''
+          color:'', 
+          valor : 0
         })
       }
     }
@@ -231,6 +233,19 @@ const FormularioAuto = ({autoAdd, autoEditado, autoEdit, setAutoEditado}) => {
           placeholder="Color"
           value={color}
           name='color'
+          onChange={handleInputChange}
+          ></input>
+          <br/>
+        </div>
+        <div className="form-group">
+          <label>Valor</label>
+          <input
+          type="numeric"
+          className="form-control"
+          id="valor"
+          placeholder="Valor"
+          value={valor}
+          name='valor'
           onChange={handleInputChange}
           ></input>
           <br/>
