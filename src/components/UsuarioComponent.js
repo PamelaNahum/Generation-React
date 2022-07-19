@@ -1,6 +1,6 @@
 import React,{useState} from "react";
-import TarjetaComponent from "./TarjetaComponent";
-import FormularioComponent from "./FormularioComponent";
+import {TarjetaComponent} from "./TarjetaComponent";
+import {FormularioComponent} from "./FormularioComponent";
 
 {/* const usuario1 ={
     nombre: 'Joseph',
