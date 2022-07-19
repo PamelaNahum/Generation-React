@@ -174,11 +174,7 @@ const FormularioAuto = ({autoAdd, autoEditado, autoEdit, setAutoEditado}) => {
 
     const handleSubmit =(e)=>{
       e.preventDefault();
-      if(autoEditado !== null){
-        autoEdit(values)
-      }else{
-        autoAdd(values)
-      }
+      autoAdd(values);
       
     }
 
